@@ -20,7 +20,7 @@ function App() {
         </div>
         <Switch>
           <Route path="/pokemon" exact component={Pokemon} />
-          {/* <Route path="/pokemon/:id" component={PokemonDetails} /> */}
+          <Route path="/pokemon/:name" component={PokemonDetails} />
           <Route path="/items" exact component={Items} />
           <Route path="/games" exact component={Games} />
         </Switch>
