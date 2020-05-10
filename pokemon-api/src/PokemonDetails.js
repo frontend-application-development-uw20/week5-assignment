@@ -41,6 +41,10 @@ export default class PokemonDetails extends React.Component {
               <li key={type.type.name}>{type.type.name}</li>)}
             </ul>
           </div>
+          <div>
+            <p>Image:</p>
+            <img src={this.state.details.sprites.front_default} alt={`${this.state.details.name}-image`}/>
+          </div>
         </div>
       </div>;
   }
