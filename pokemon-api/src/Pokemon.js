@@ -7,7 +7,6 @@ export default class Pokemon extends React.Component {
   state = {
     isLoading: true,
     pokemons: [],
-    errorMessage: '',
   }
 
   componentDidMount() {

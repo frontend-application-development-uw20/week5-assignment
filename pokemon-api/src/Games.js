@@ -1,7 +1,6 @@
 import React from 'react';
 import egg from './egg.svg';
 
-
 export default class Games extends React.Component {
   render() {
     return (

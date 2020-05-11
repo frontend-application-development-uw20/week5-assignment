@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, useParams, Switch, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import pokeball from './pokemon.svg';
 import './App.css';
 import Pokemon from './Pokemon';

@@ -5,7 +5,6 @@ export default class PokemonDetails extends React.Component {
   state = {
     isLoading: true,
     details: [],
-    errorMessage: '',
   };
 
   componentDidMount() {
@@ -43,7 +42,7 @@ export default class PokemonDetails extends React.Component {
           </div>
           <div>
             <p>Image:</p>
-            <img src={this.state.details.sprites.front_default} alt={`${this.state.details.name}-image`}/>
+            <img src={this.state.details.sprites.front_default} alt={this.state.details.name}/>
           </div>
         </div>
       </div>;
