@@ -2,6 +2,10 @@ import React from 'react';
 import {BrowserRouter as Router,Route, Link, Switch} from 'react-router-dom';
 import Characters from './Characters';
 import CharacterDetails from './CharacterDetails';
+import Locations from './Locations';
+import LocationDetails from './LocationDetails';
+import Episodes from './Episodes';
+import EpisodeDetails from './EpisodeDetails'
 import './App.css';
 
 
@@ -27,13 +31,23 @@ function App() {
         <div>
          <Link to ="/"> <em>Home  </em></Link> 
          <Link to ="/characters"><em>  Characters </em> </Link>
+         <Link to ="/locations"><em>  Locations </em> </Link>
+         <Link to ="/episodes"><em>  Episodes </em> </Link>
+
+         
          <hr />
         
          </div>
         <Switch>
           <Route path ="/" exact component ={Home} />
           <Route exact path ="/characters" component= {Characters} />
-          <Route path= "/characters/:id" component= {CharacterDetails}  />
+          <Route path= "/characters/:char_id" component= {CharacterDetails}  />
+          <Route exact path ="/locations" component= {Locations} />
+          <Route path= "/locations/:loc_id" component= {LocationDetails}  />
+          <Route exact path ="/episodes" component= {Episodes} />
+          <Route path= "/episodes/:ep_id" component= {EpisodeDetails}  />
+
+
           <Route path = "*" component ={NotFound} />
         </Switch>
       </Router>
