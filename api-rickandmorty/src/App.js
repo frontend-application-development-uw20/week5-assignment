@@ -12,7 +12,8 @@ import './App.css';
 const Home = (props) => {
   return(
     <div className= "home_page">
-      <h1>Time for Rick and Morty</h1>
+       <a href= "https://en.wikipedia.org/wiki/Rick_and_Morty" ><h1>Time for Rick and Morty</h1></a>
+      <a href= "https://en.wikipedia.org/wiki/Rick_and_Morty" />
       <img className= "poster" src=
       "https://cdn11.bigcommerce.com/s-1n8r405nxd/images/stencil/2000x2000/products/6104/10383/20364-1-Rick_Morty_Portal_Poster-Cheapest_Affordable_Online_Wholesale_Waterbedsnstuff__78431.1536271014.jpg?c=2" 
       alt="Rick and Morty poster"/>

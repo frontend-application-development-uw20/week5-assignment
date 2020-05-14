@@ -2,13 +2,15 @@ import React from 'react';
 
 
 
+
 export default class CharacterDetails extends React.Component {
     state= {details: {} };
 
     componentDidMount() {
-        const { char_id } = this.props.match.params;
+        const { char_id, pageNumber } = this.props.match.params;
 
-        fetch(`https://rickandmortyapi.com/api/character/${char_id}`)
+
+        fetch(`https://rickandmortyapi.com/api/character/?page=${pageNumber}/${char_id}`)
         .then(res => res.json())
         .then(data => this.setState({details: data }));
         
@@ -21,7 +23,7 @@ export default class CharacterDetails extends React.Component {
         const updatedDate= new Date(details.created).toLocaleString('en-US');
         
         return (
-            <div>
+            <div className= "char_details">
                 <h2>{details.id}. {details.name}</h2>
                 <img src = {details.image} alt= {`${details.name} poster`}
                 />

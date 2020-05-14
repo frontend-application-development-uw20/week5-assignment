@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link, Route} from 'react-router-dom';
 
 
 
@@ -16,7 +15,7 @@ export default class LocationDetails extends React.Component {
 
     render(){
         const { details }= this.state;
-        const { char_id } = this.props.match.params;
+        //const { char_id } = this.props.match.params;
         
         // console.log(location);
         const updatedDate= new Date(details.created).toLocaleString('en-US');
