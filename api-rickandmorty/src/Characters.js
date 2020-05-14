@@ -31,7 +31,7 @@ export default class Characters extends React.Component{
 
 
     render() {
-        const {count, pages} = this.state.page_info;
+        const {count} = this.state.page_info;
   
         return(
             <React.Fragment>
@@ -40,7 +40,7 @@ export default class Characters extends React.Component{
                     <ul>
                         {this.state.characters.map((character,index) => ( 
                             <li key= {index}> 
-                                <Link to = {`/characters/${character.id}`} className= "character_page"> 
+                                <Link to = {`/characters/${character.id}`} className= "details-elements"> 
                                     {character.name} 
                                     {}
                                 </Link>
@@ -55,7 +55,7 @@ export default class Characters extends React.Component{
                     <Pagination 
                     activePage= {this.state.activePage}
                     totalItemsCount= {count}
-                    itemsCountPerPage= {15}
+                    itemsCountPerPage= {20}
                     onChange = {(pageNumber) => this.getCharacters(pageNumber)} 
                     itemClass= "page-item"
                     linkClass= "page-link"
@@ -69,7 +69,12 @@ export default class Characters extends React.Component{
             </React.Fragment>
         )
     }
+    
 
+//     count: 591
+// next: "https://rickandmortyapi.com/api/character/?page=2"
+// pages: 30
+// prev: null
 
 
 

@@ -7,10 +7,10 @@ export default class CharacterDetails extends React.Component {
     state= {details: {} };
 
     componentDidMount() {
-        const { char_id, pageNumber } = this.props.match.params;
+        const { char_id} = this.props.match.params;
+        
 
-
-        fetch(`https://rickandmortyapi.com/api/character/?page=${pageNumber}/${char_id}`)
+        fetch(`https://rickandmortyapi.com/api/character/${char_id}`)
         .then(res => res.json())
         .then(data => this.setState({details: data }));
         
@@ -19,7 +19,7 @@ export default class CharacterDetails extends React.Component {
     render(){
         const { details }= this.state;
         const location = details.location;
-        console.log(location);
+        // console.log(location);
         const updatedDate= new Date(details.created).toLocaleString('en-US');
         
         return (
