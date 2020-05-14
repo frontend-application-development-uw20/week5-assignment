@@ -2,11 +2,13 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Pagination from 'react-js-pagination';
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from 'axios';
+
 
 export default class Characters extends React.Component{
     state= {characters: [],
-            page_info:[]};
+            page_info:[],
+            activePage: 1
+        };
 
     componentDidMount(){ 
         this.getCharacters();       
@@ -18,9 +20,10 @@ export default class Characters extends React.Component{
                     .then(data => this.setState(
                         {
                             characters: data.results,
-                            page_info: data.info
+                            page_info: data.info,
+                            activePage:pageNumber
                         }));
-                    //.then(data => console.log(data.info));
+                    
 
         }
 
@@ -28,9 +31,8 @@ export default class Characters extends React.Component{
 
 
     render() {
-        const {count} = this.state.page_info;
-        
-
+        const {count, pages} = this.state.page_info;
+  
         return(
             <React.Fragment>
                 <div>
@@ -39,39 +41,35 @@ export default class Characters extends React.Component{
                         {this.state.characters.map((character,index) => ( 
                             <li key= {index}> 
                                 <Link to = {`/characters/${character.id}`} className= "character_page"> 
-                                    {character.name}
+                                    {character.name} 
+                                    {}
                                 </Link>
                             </li>
                         ))}
                     </ul>
     
                 </div>
+                 
 
                 <div className= "Pages">
                     <Pagination 
+                    activePage= {this.state.activePage}
                     totalItemsCount= {count}
-                    itemsCountPerPage= {20}
+                    itemsCountPerPage= {15}
                     onChange = {(pageNumber) => this.getCharacters(pageNumber)} 
                     itemClass= "page-item"
                     linkClass= "page-link"
                     firstPageText= "First"
                     lastPageText= "Last"
-   
+  
                     />
 
-                {/* {console.log(pageNumber)}  */}
-                    
                 </div>
 
             </React.Fragment>
         )
     }
-    
 
-//     count: 591
-// next: "https://rickandmortyapi.com/api/character/?page=2"
-// pages: 30
-// prev: null
 
 
 
