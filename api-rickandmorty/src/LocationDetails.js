@@ -22,26 +22,11 @@ export default class LocationDetails extends React.Component {
         
         return (
             <div>
-                <h2>{details.id}. {details.name}</h2>
-                <p>
-                    <b>Type: </b> {details.type} 
-                    <p>
-                        <b>Dimension: </b>{details.dimension} 
-                    </p>
-                
-                    <p>
-                   {details.residents}
-                    {/* <Link to ="/characters/id"><em> {details.residents}</em></Link> */}
-                    {/* <Route path= "/characters/:char_id" component= {CharacterDetails}  /> */}
-                    </p> 
-                       
-                    <p>
-                        <b>Created on: </b>{updatedDate}
-                    </p>
-                    
-                </p>
-                
-                
+                <h2>{details.id}. {details.name}</h2> <br />
+                    <b>Type: </b> {details.type} <br />
+                    <b>Dimension: </b>{details.dimension} <br />
+                        {details.residents} <br />
+                    <b>Created on: </b>{updatedDate}
 
             </div>
         )

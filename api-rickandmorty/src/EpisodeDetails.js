@@ -21,24 +21,12 @@ export default class EpisodeDetails extends React.Component {
             <div>
                 <h2>{details.id}. {details.name}</h2>
                 <p>
-                    <b>Air_Date: </b> {details.air_date} 
-                    <p>
-                        <b>Episode: </b>{details.episode} 
-                    </p>
-                
-                    <p>
-                    <b>Characters: </b>{details.characters}
-                    {/* <Link to ="/characters/id"><em> {details.residents}</em></Link> */}
-                    {/* <Route path= "/characters/:char_id" component= {CharacterDetails}  /> */}
-                    </p> 
-                       
-                    <p>
-                        <b>Created on: </b>{updatedDate}
-                    </p>
-                    
+                    <b>Air_Date: </b> {details.air_date} <br />
+                        <b>Episode: </b>{details.episode} <br />
+                    <b>Characters: </b>{details.characters} <br />
+                        <b>Created on: </b>{updatedDate} <br />
+
                 </p>
-                
-                
 
             </div>
         )

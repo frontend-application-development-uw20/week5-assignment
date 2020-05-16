@@ -4,46 +4,95 @@ import React from 'react';
 
 
 export default class CharacterDetails extends React.Component {
-    state= {details: {} };
+    favoriteData;
+    constructor(props) {
+        super(props);
+
+         this.state= {
+            details: {} ,
+            isFavorite: false}
+        };
+
+
+     handleFavorite = (e) =>{
+                e.preventDefault();
+                console.log(this.state.isFavorite);
+                
+                if(!this.state.isFavorite){
+                    console.log("inside set Favourite");
+                    
+                    document.getElementById(this.props.id+"-favorite").innerHTML= "favorite";
+                    document.getElementById(this.props.id+"-favorite").classList.add("favorite");
+                
+                }
+                else
+                {
+                    console.log("inside remove Favourite");
+                    document.getElementById(this.props.id+"-favorite").classList.remove("favorite");
+                    document.getElementById(this.props.id+"-favorite").innerHTML= "favorite_border";
+                    
+                }
+                
+                this.setState((prevState) =>{
+                    return {isFavorite:!prevState.isFavorite};
+                })
+
+                
+                
+              }
+
+        
 
     componentDidMount() {
-        const { char_id} = this.props.match.params;
+
+        // const { char_id} = this.props.match.params;
         
+        this.favoriteData = JSON.parse(localStorage.getItem('favorite'))
+
+        // if(localStorage.getItem('favorite')){
+        //     this.setState({
+        //         details: this.favoriteData.details,
+        //         isFavorite: this.favoriteData.isFavorite
+        //     })
+            
+        // }
+
+
+        // else{
+        
+        const { char_id} = this.props.match.params;
 
         fetch(`https://rickandmortyapi.com/api/character/${char_id}`)
         .then(res => res.json())
         .then(data => this.setState({details: data }));
+
+        // }
         
+         
     }
+  
+
+      
+
 
     render(){
         const { details }= this.state;
-        const location = details.location;
-        // console.log(location);
+
         const updatedDate= new Date(details.created).toLocaleString('en-US');
         
         return (
             <div className= "char_details">
-                <h2>{details.id}. {details.name}</h2>
+                <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"></link>
+                <h2>{details.id}. {details.name} <i className="material-icons" id={this.props.id+"-favorite"} 
+                                    onClick={this.handleFavorite}>favorite_border</i></h2>
+            
                 <img src = {details.image} alt= {`${details.name} poster`}
-                />
-                <p>
-                    <b>Status: </b> {details.status} 
-                    <p>
-                        <b>Species: </b>{details.species} 
-                    </p>
-                    <p>
-                        <b>Gender: </b>{details.gender}
-                    </p>
-                    <p>
-                        {/* {location.name} */}
-                        {/* <b>Location: </b>{location.map(loc => <div>{loc.name}</div>)} */}
+                /> <br />
+
+                    <b>Status: </b> {details.status} <br />
+                        <b>Species: </b>{details.species} <br/>
+                        <b>Gender: </b>{details.gender}<br/>
                         <b>Created on: </b>{updatedDate}
-                    </p>
-                    
-                </p>
-                
-                
 
             </div>
         )
