@@ -1,0 +1,81 @@
+.App {
+  text-align: center;
+}
+.box {
+  margin: auto;
+  width: 90%;
+  display:flex;
+  flex-direction: row;
+  flex-wrap:  wrap;
+
+}
+.box > div {
+  border: 1px solid purple;
+  min-width: 31%;
+  padding: 10px;
+}
+.box > div:nth-of-type(odd){
+ background-color: pink;
+ border: 1px solid purple;
+}
+h2 {
+  color: blue;
+}
+nav > div {
+  display: inline;
+  padding: 10px;
+  color:orangered;
+  font-weight: bold;
+}
+.detail {
+  margin: auto;
+  width: 60%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.detail > div:nth-of-type(odd){
+  background-color:lightgrey;
+ }
+ .detail > div{
+  border: 1px solid purple;
+  padding: 1em;
+ }
+span {
+  color: red;
+}
+ul li{
+  display: inline;
+  padding: 50px;
+  margin-left: 0;
+  margin-bottom: 10px;
+}
+li button{
+  background-color: aquamarine;
+  display: block;
+  padding: 20px;
+  width: 400px;
+  margin-left: 0;
+  margin-bottom: 10px;
+}
+
+.search-form{
+  width:50%;
+  padding: 10px;
+  margin: auto;
+  background-color: lightgray;
+  border:1px solid #ccc;
+  border-radius: 10px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
