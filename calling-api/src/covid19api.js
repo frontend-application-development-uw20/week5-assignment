@@ -36,7 +36,8 @@ export default class Youtube extends Component {
 
         return (
             <main>
-                <h1> Year 2020 came with a virus. Please undo it!</h1>
+                <h1>Year 2020 came with a virus. Please undo it!</h1>
+                <img src="https://www.amc.edu/patient/services/infectious_disease/images/corona-virus-static-web_1.jpg" width="250" height="150" border="0"></img>
                 <h3> As of {this.state.date.substr(0, 10)}</h3>
                 <nav>
                     <div>New Confirmed={parseInt(NewConfirmed).toLocaleString()} </div>
