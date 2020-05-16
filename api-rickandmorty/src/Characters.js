@@ -7,79 +7,75 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default class Characters extends React.Component{
     state= {characters: [],
             page_info:[],
-            activePage: 1
+            activePage: 1,
+            search: ""
         };
 
     componentDidMount(){ 
         this.getCharacters();       
     }
 
-        getCharacters(pageNumber=1){
-                    fetch(`https://rickandmortyapi.com/api/character/?page=${pageNumber}`)
-                    .then(res => res.json())
-                    .then(data => this.setState(
-                        {
-                            characters: data.results,
-                            page_info: data.info,
-                            activePage:pageNumber
-                        }));
-                    
+    getCharacters(pageNumber=1){
+                fetch(`https://rickandmortyapi.com/api/character/?page=${pageNumber}`)
+                .then(res => res.json())
+                .then(data => this.setState(
+                    {
+                        characters: data.results,
+                        page_info: data.info,
+                        activePage:pageNumber
+                    }));
+ 
+     }
 
-        }
-
-    
+     updateSearch(event){
+         this.setState({search: event.target.value.substr(0,20)});
+     }
 
 
     render() {
         const {count} = this.state.page_info;
+        let filteredCharacters= this.state.characters.filter((character)=>{
+                                        return character.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+                                 })
   
         return(
             <React.Fragment>
-                <div>
-                    <h1>Browse Characters Here</h1>
+                <div className= "list" >
+                    <h3>Browse Characters Here</h3>
+                    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"></link>
+                   <div > 
+                       <i className="material-icons" >search</i><span />
+                        <input type = "text" placeholder= "Search here!" class= "search" value= {this.state.search} onChange={this.updateSearch.bind(this) } /> 
+                    </div> 
+
                     <ul>
-                        {this.state.characters.map((character,index) => ( 
-                            <li key= {index}> 
-                                <Link to = {`/characters/${character.id}`} className= "details-elements"> 
+                        {filteredCharacters.map((character,index) => ( 
+                            <span key= {index}> 
+                                <Link to = {`/characters/${character.id}`} className= "details-elements"> <br/>
                                     {character.name} 
                                     {}
                                 </Link>
-                            </li>
+                            </span>
                         ))}
                     </ul>
+ 
+                        <Pagination 
+                        activePage= {this.state.activePage}
+                        totalItemsCount= {count}
+                        itemsCountPerPage= {20}
+                        onChange = {(pageNumber) => this.getCharacters(pageNumber)} 
+                        itemClass= "page-item"
+                        linkClass= "page-link"
+                        firstPageText= "First"
+                        lastPageText= "Last"
     
-                </div>
-                 
+                        />
 
-                <div className= "Pages">
-                    <Pagination 
-                    activePage= {this.state.activePage}
-                    totalItemsCount= {count}
-                    itemsCountPerPage= {20}
-                    onChange = {(pageNumber) => this.getCharacters(pageNumber)} 
-                    itemClass= "page-item"
-                    linkClass= "page-link"
-                    firstPageText= "First"
-                    lastPageText= "Last"
-  
-                    />
-
+                    
                 </div>
 
             </React.Fragment>
         )
     }
-    
-
-//     count: 591
-// next: "https://rickandmortyapi.com/api/character/?page=2"
-// pages: 30
-// prev: null
-
-
-
-
-
-
 
 }

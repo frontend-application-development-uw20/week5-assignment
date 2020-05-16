@@ -6,7 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default class Locations extends React.Component{
     state= {locations: [],
             page_info:[],
-            activePage: 1
+            activePage: 1,
+            search: ""
         };
 
     componentDidMount(){
@@ -25,27 +26,40 @@ export default class Locations extends React.Component{
             }));
        
     }
+    updateSearch(event){
+        this.setState({search: event.target.value.substr(0,20)});
+    }
 
   
 
     render() {
+
         const {count} = this.state.page_info;
+
+        let filteredLocations= this.state.locations.filter((location)=>{
+            return location.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        })
+        
         return(
             <React.Fragment>
-                <div>
-                    <h1>Browse Locations Here</h1>
+                <div className= "list" >
+                    <h3>Browse Locations Here</h3>
+                    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"></link>
+                   <div > 
+                       <i className="material-icons" >search</i><span />
+                        <input type = "text" placeholder= "Search here!" class= "search" value= {this.state.search} onChange={this.updateSearch.bind(this) } /> 
+                    </div> 
                     <ul>
-                        {this.state.locations.map((location,index) => ( 
-                            <li key= {index}>
-                                <Link to = {`/locations/${location.id}`} className= "details-elements"> 
+                        {filteredLocations.map((location,index) => ( 
+                            <span key= {index}>
+                                <Link to = {`/locations/${location.id}`} className= "details-elements"> <br/>
                                     {location.name}
                                 </Link>
-                            </li>
+                            </span>
                         ))}
                     </ul>
 
-                </div>
-                <div className= "Pages">
+                
                     <Pagination 
                     activePage= {this.state.activePage}
                     totalItemsCount= {count}
