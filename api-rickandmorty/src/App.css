@@ -48,9 +48,7 @@
   
 }
 
-.home_page{
-  text-align: center;
-}
+
 a {
   text-decoration: none !important;
   color: black;
@@ -68,4 +66,30 @@ li{
 
 }
 
+.favorite{
+  color: #ffe817;
+  
+
+}
+
+.search{
+  color: gray;
+  text-align: inherit;
+  margin: 10px;
+  border-radius: 3%;
+
+}
+
+.list{
+  margin: 30px;
+}
+
+i{
+  margin: 10px;
+  color: gray
+}
+
+
+
+        
 
