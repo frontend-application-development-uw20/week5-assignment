@@ -1,0 +1,14 @@
+.override {
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+  }
+
+  .container {
+    display: grid inline-grid;
+  }
+
+  text {
+    background-color: lightgrey;
+    color: blue;
+  }
