@@ -1,8 +1,8 @@
 import React from "react";
 import './App.css';
 import Links from './Links';
-import Routes from './Routes';
-import Character from './Character';
+import Routes from './Routes.jsORIGINAL';
+import Character from './Character.jsORIGINAL';
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,8 +17,8 @@ return (
         <nav>
           <Links />
         </nav>
-          {/* <Routes /> */}
-          <b>{Character.getCharDetail("Leia")}</b>
+          <Routes />
+          {/* <b>{Character.getCharDetail("Leia")}</b> */}
       </div>
     </Router>
   );
