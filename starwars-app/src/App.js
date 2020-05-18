@@ -2,10 +2,8 @@ import React from "react";
 import './App.css';
 import Links from './Links';
 import Routes from './Routes.js';
-import Character from './Character.js';
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
   Link
 } from "react-router-dom";
@@ -15,9 +13,12 @@ return (
     <Router>
       <div className='App'>
         <nav>
-          <Links />
+            <li>
+              <span><Link to="/">Home</Link></span>
+            </li>
         </nav>
-          <Routes />
+            <Route exact path="/" component={Links} />
+            <Routes />
       </div>
     </Router>
   );

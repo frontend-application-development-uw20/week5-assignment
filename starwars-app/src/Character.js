@@ -1,5 +1,4 @@
 import React from 'react';
-import {  BrowserRouter as Switch, Router, Route, Link} from 'react-router-dom';
 class Character extends React.Component {
     constructor(props) {
         super(props);
@@ -21,8 +20,13 @@ class Character extends React.Component {
     render() {
         const { characterData, isLoading } = this.state;
             return !isLoading && (
-                <div>
-                <h3 style={{textAlign: 'center'}}>{characterData.name} </h3>
+                <div className="Character">
+                        <ul>
+                            <li><b>{characterData.name}</b></li>
+                            <li>Height: {characterData.height}cm</li>
+                            <li>Weight: {characterData.mass}kg</li>
+                            <li>Born: {characterData.birth_year} Galatic Standard</li>
+                        </ul>
             </div>
             )
     }
