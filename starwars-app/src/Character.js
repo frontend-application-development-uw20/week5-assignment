@@ -25,8 +25,8 @@ class Character extends React.Component {
         //     </div>
         // )
         .then(data => console.log(data.results[0].name));
-        console.log("wtf")
-        console.log(myname);
+        // console.log("wtf")
+        // console.log(myname);
         // return (
         //     <div>
         //         <h3>{}</h3>
