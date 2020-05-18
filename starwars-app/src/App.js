@@ -1,14 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
-import Characters from './Characters';
+import Links from './Links';
+import Routes from './Routes';
+import Character from './Character';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <Characters />
-    </div>
+export default function App() {
+return (
+    <Router>
+      <div>
+        <nav>
+          <Links />
+        </nav>
+          {/* <Routes /> */}
+          <b>{Character.getCharDetail("Leia")}</b>
+      </div>
+    </Router>
   );
 }
 
-export default App;
