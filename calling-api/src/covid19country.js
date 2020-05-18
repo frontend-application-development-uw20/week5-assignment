@@ -9,6 +9,7 @@ export default class Covid19country extends React.Component {
         error: false
     }
 
+
     componentDidMount() {
         // console.log(this.props);
         const { CountryName } = this.props.match.params;
