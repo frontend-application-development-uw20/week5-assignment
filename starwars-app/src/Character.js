@@ -22,7 +22,7 @@ class Character extends React.Component {
         const { characterData, isLoading } = this.state;
             return !isLoading && (
                 <div>
-                <h3>{characterData.name} </h3>
+                <h3 style={{textAlign: 'center'}}>{characterData.name} </h3>
             </div>
             )
     }

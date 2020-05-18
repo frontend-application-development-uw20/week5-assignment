@@ -27,7 +27,7 @@ class Links extends React.Component {
 
 
         return (
-                    <ul>
+                    <ul style={{listStyle: 'none'}}>
                     {charList.map(char => 
                             <li key={char.name}><Link to={"/" + char.name.split(" ")[0]}>{char.name}</Link></li>
                             )}

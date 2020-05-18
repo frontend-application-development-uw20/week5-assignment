@@ -27,7 +27,7 @@ class Routes extends React.Component {
                         key={char.name} 
                         exact 
                         path={"/" + char.name.split(" ")[0]} 
-                        render={(props) => <Character {...props} charName={char.name} />}
+                        render={() => <Character charName={char.name} />}
                     />
                 )
           )
