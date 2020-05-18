@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
 import './App.css';
 import GitUser from './gitUser';
 import Movie from './movieapi';
@@ -16,10 +16,10 @@ import Stock from './stockapi';
 
 const Links = () => (
   <ul>
-    <li><Link to="/">Stock</Link></li>
-    <li><Link to="/covid19">Covid19</Link></li>
-    <li><Link to="/movie">Movie</Link></li>
-    <li><Link to="/user">User</Link></li>
+    <li><NavLink exact to="/">Stock</NavLink></li>
+    <li><NavLink to="/covid19">Covid19</NavLink></li>
+    <li><NavLink to="/movie">Movie</NavLink></li>
+    <li><NavLink to="/user">User</NavLink></li>
   </ul>
 );
 
@@ -27,13 +27,13 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Links />
+        <header> <Links /></header>
         <Switch>
           <Route exact path="/" component={Stock} />
           <Route exact path="/covid19" component={Covid19} />
           <Route exact path="/covid19/:CountryName" component={Covid19country} />
           <Route exact path="/movie" component={Movie} />
-          <Route path="/movie/:imdbID" component={MovieDetail} />
+          <Route exact path="/movie/:imdbID" component={MovieDetail} />
           <Route exact path="/user" component={GitUser} />
           <Route path="*" component={NotFound} />
         </Switch>

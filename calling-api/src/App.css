@@ -1,6 +1,29 @@
 .App {
   text-align: center;
 }
+body{
+  background-color: #800080
+}
+Header {
+padding-top: 10px; 
+padding-bottom: 10px;
+  background-color:grey;
+}
+ol li {
+  list-style-type: none;
+  font-size: 1.5em;
+}
+ul li{
+  font-size: 1.5em;
+  font-weight: bolder;
+  display: inline;
+  padding: 50px;
+  margin-left: 0;
+}
+.active {
+  color: orange;
+  text-decoration: none;
+}
 .box {
   margin: auto;
   width: 90%;
@@ -11,11 +34,12 @@
 }
 .box > div {
   border: 1px solid purple;
+  background-color: rgb(90, 79, 117);
   min-width: 31%;
   padding: 10px;
 }
 .box > div:nth-of-type(odd){
- background-color: pink;
+ background-color:rgb(131, 108, 130);
  border: 1px solid purple;
 }
 h2 {
@@ -33,22 +57,17 @@ nav > div {
   display: flex;
   flex-direction: column-reverse;
 }
-.detail > div:nth-of-type(odd){
-  background-color:lightgrey;
- }
- .detail > div{
-  border: 1px solid purple;
+.detail > div{
+  background-color:rgb(90, 79, 117);
   padding: 1em;
  }
+.detail > div:nth-of-type(odd){
+  background-color:rgb(131, 108, 130);
+ }
 span {
-  color: red;
+  color: gold;
 }
-ul li{
-  display: inline;
-  padding: 50px;
-  margin-left: 0;
-  margin-bottom: 10px;
-}
+
 li button{
   background-color: aquamarine;
   display: block;
