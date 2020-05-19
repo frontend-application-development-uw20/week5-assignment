@@ -16,14 +16,14 @@ import IconButton from '@material-ui/core/IconButton';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 
 
-
+let flag=0; 
 export default class CharDetails extends React.Component 
 {
     state={
         results:{
-            location:{}}, 
+            location:{}, 
     }
-    
+   }
     componentDidMount()
     {
         const {id} =this.props.match.params; 
@@ -47,8 +47,8 @@ export default class CharDetails extends React.Component
                 //               (
                 <Grid container spacing={4} styles={{ marginLeft:20}}>
                         <Grid item xs={4}/> 
-                        <Grid item xs={3}> 
-                            <Card styles={{maxWidth:145, marginLeft:20}} > 
+                        <Grid item xs={4}> 
+                            <Card styles={{maxWidth:245, marginLeft:20}} > 
                                 <CardHeader
                                 avatar=
                                 {
@@ -56,9 +56,9 @@ export default class CharDetails extends React.Component
                                     <AssignmentIndIcon  />
                                     </Avatar>
                                 }
-                                    titleTypographyProps={{variant:'h4'}}
+                                    titleTypographyProps={{variant:'h5'}}
                                     title={results.name}
-                                    subheaderTypographyProps={{variant:'h5'}}
+                                    subheaderTypographyProps={{variant:'h6'}}
                                     subheader={results.species}
                                 />
                             
@@ -73,7 +73,12 @@ export default class CharDetails extends React.Component
                                         <b>Gender:</b>   {results.gender}  <br/>
                                         <b>Status:</b>   {results.status} <br/>
                                         {/* {results.episode} */}
-                                        {/* {details.location}      */}
+                                        <b>Location:</b>   {results.location ? results.location.name : null }
+                                        <br/> {results.location ? <img src={results.location.url} alt={results.location.name}/>   : null }
+                                        
+                                        <br/> <b>Origin::</b> {results.origin ? results.origin.name : null }
+                                                                            {/* {details.location}      */}
+                                                                           
                                      </Typography>
                                 </CardContent>
                             </Card> <br></br> <br/>

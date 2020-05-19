@@ -69,15 +69,21 @@ export default class Character extends React.Component
                 return <div> An error occured. Try refreshing.</div>
             }
             return (
+                    <Grid container direction="row" spacing={6} justify="center" flex="1" alignItems="center" > 
+                      {[0,1,2].map((value) => ( 
+                      <Grid item key={value} md={3}> 
                         <div styles={{marginLeft:20}}>
-                            { this.state.results.map
+                            { 
+                             
+                            this.state.results.map 
                                 (results => 
-                                (
-                                <div style={{flexGrow:1, flex:1, }}>
-                                    <Grid container direction="row" spacing={3} justify="center" alignItems="center" > 
-                                   {/* {[0,1,2].map((value) => (  */}
-                                   <Grid item md={2}>
-                                    <Card styles={{ marginLeft:20, maxWidth:50}} >
+                                ( 
+                                <div style={{flexGrow:1, flex:1 }}>
+                                    {/* {[results].map((value) => (
+                                     <Grid item key={value} md={3}> */}
+                                     {/* {[0,1,2].map((results.id) => (  */}
+                                  
+                                    <Card styles={{ marginLeft:20, maxWidth:350}} >
                                     <CardHeader
                                         avatar=
                                             {
@@ -93,15 +99,18 @@ export default class Character extends React.Component
                                     />
                                     <img src={results.image} alt={`${results.id}`}  />
                                     {/* {results.location.name} */}
-                                    
                                     </Card>  
-                                    </Grid>
-                                   {/* ))} */}
-                                    </Grid>   
+                                    {/* </Grid>
+                                    ))}    */}
+                                    
                                 </div>
                             ))
                             }
                         </div>
+                         </Grid> 
+                      ))} 
+                     </Grid>
+            
                     )
        }
 }
