@@ -31,7 +31,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Stock} />
           <Route exact path="/covid19" component={Covid19} />
-          <Route exact path="/covid19/:CountryName" component={Covid19country} />
+          <Route exact path="/covid19/:CountryName/:CountryCode" component={Covid19country} />
           <Route exact path="/movie" component={Movie} />
           <Route exact path="/movie/:imdbID" component={MovieDetail} />
           <Route exact path="/user" component={GitUser} />

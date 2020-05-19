@@ -3,7 +3,6 @@ import React from 'react';
 export default class Covid19country extends React.Component {
     state = {
         detail: [],
-        CountryName: '',
         Country: '',
         loading: true,
         error: false
@@ -12,8 +11,8 @@ export default class Covid19country extends React.Component {
 
     componentDidMount() {
         // console.log(this.props);
-        const { CountryName } = this.props.match.params;
-        this.setState({ CountryName: CountryName })
+        const { CountryName, CountryCode } = this.props.match.params;
+        this.setState({ CountryName: CountryName, CountryCode: CountryCode })
 
         const code = CountryName.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
         this.setState({ Country: code })
@@ -39,20 +38,18 @@ export default class Covid19country extends React.Component {
         }
         return (
             <>
-                <h2> ***   {this.state.Country} ***
-                    {/* <img src="https://www.countryflags.io/{country_code}/flat/64.png"> */}
-                </h2>
+                {<img src={`https://www.countryflags.io/${this.state.CountryCode}/flat/64.png`} width="200px" alt="flag" />}
+                <h2>***   {this.state.Country} ***</h2>
                 <div className="detail">
-                    {this.state.detail.map((c, idx) => <div key={idx}>
-                        <b>{c.Date.substring(0, 10)} Total={parseInt(c.Confirmed).toLocaleString()} </b>
+                    {this.state.detail.map((c, idx) =>
+                        <div key={idx}>
+                            <b>{c.Date.substring(0, 10)} Total={parseInt(c.Confirmed).toLocaleString()} </b>
                         ( <span>Death={parseInt(c.Deaths).toLocaleString()}</span> Recovered={parseInt(c.Recovered).toLocaleString()} Active={parseInt(c.Active).toLocaleString()} )
-                </div>
-                    )
-                    }
+                        </div>
+                    )}
                 </div>
             </>
         )
     }
-
 }
 
