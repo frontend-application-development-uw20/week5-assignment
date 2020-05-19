@@ -72,13 +72,8 @@ export default class CharDetails extends React.Component
                                         <br/>
                                         <b>Gender:</b>   {results.gender}  <br/>
                                         <b>Status:</b>   {results.status} <br/>
-                                        {/* {results.episode} */}
                                         <b>Location:</b>   {results.location ? results.location.name : null }
-                                        <br/> {results.location ? <img src={results.location.url} alt={results.location.name}/>   : null }
-                                        
-                                        <br/> <b>Origin::</b> {results.origin ? results.origin.name : null }
-                                                                            {/* {details.location}      */}
-                                                                           
+                                        <br/> <b>Origin:</b> {results.origin ? results.origin.name : null }                                                                           
                                      </Typography>
                                 </CardContent>
                             </Card> <br></br> <br/>

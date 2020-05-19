@@ -69,48 +69,45 @@ export default class Character extends React.Component
                 return <div> An error occured. Try refreshing.</div>
             }
             return (
-                    <Grid container direction="row" spacing={6} justify="center" flex="1" alignItems="center" > 
-                      {[0,1,2].map((value) => ( 
-                      <Grid item key={value} md={3}> 
-                        <div styles={{marginLeft:20}}>
+
+              <div>
                             { 
-                             
-                            this.state.results.map 
-                                (results => 
-                                ( 
-                                <div style={{flexGrow:1, flex:1 }}>
-                                    {/* {[results].map((value) => (
-                                     <Grid item key={value} md={3}> */}
-                                     {/* {[0,1,2].map((results.id) => (  */}
-                                  
-                                    <Card styles={{ marginLeft:20, maxWidth:350}} >
-                                    <CardHeader
-                                        avatar=
-                                            {
-                                             <Avatar aria-label="icon" >
-                                             <FlareIcon></FlareIcon></Avatar>
-                                            }
-                                        title=
-                                            {
-                                              <IconButton styles={{textAlign:"right"}}>
-                                              <Link to={`/${results.id}`}> {results.name} </Link>
-                                              </IconButton>                   
-                                           }
-                                    />
-                                    <img src={results.image} alt={`${results.id}`}  />
-                                    {/* {results.location.name} */}
-                                    </Card>  
-                                    {/* </Grid>
-                                    ))}    */}
-                                    
-                                </div>
-                            ))
-                            }
-                        </div>
-                         </Grid> 
-                      ))} 
-                     </Grid>
+                                <Grid container direction="row" spacing={6}> 
+                                { 
+                                this.state.results.map 
+                                    (results => ( 
+                                       
+                                        <Grid item md={3}> 
+                                            <div>
+                                                <Card >
+                                                    <CardHeader 
+                                                        avatar=
+                                                            {
+                                                                <Avatar aria-label="icon" >
+                                                                <FlareIcon></FlareIcon></Avatar>
+                                                            }
+                                                        title=
+                                                            {
+                                                                <IconButton styles={{textAlign:"right"}}>
+                                                                <Link to={`/${results.id}`}> {results.name} </Link>
+                                                                </IconButton>                   
+                                                            }
+                                                    />
+                                                    <CardContent>
+                                                     <img src={results.image} alt={`${results.id}`}  />
+                                                    </CardContent>
+                                                    
+                                                </Card>  
+                                            </div>
+                                        </Grid>
+                                        
+                                    ))
+                                }
+                                </Grid>
+
+                             }
+               </div>
             
-                    )
-       }
+          )
+      }
 }
