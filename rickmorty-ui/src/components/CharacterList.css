@@ -1,0 +1,38 @@
+#main-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  overflow-y: scroll;
+  padding: 0 20px;
+}
+
+#container-characters {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 47px;
+  justify-content: center;
+
+  font-family: monospace;
+}
+
+#container-characters .character {
+  line-height: 50px;
+}
+
+.character a {
+  color: #003366;
+  padding: 10px;
+  text-decoration: none;
+}
+.character a:hover{
+  background-color: #f6f8eb;
+  border-top: 2px solid #abbc37;
+  border-bottom: 2px solid #abbc37;
+}
+
+#character-numbers {
+  align-self: center;
+  font-size: 14px;
+  margin-bottom: 5px;
+}

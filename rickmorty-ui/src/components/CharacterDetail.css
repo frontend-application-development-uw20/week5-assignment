@@ -1,0 +1,54 @@
+#main-detail {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 20px;
+}
+
+#container-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+}
+
+.character-card {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(7, auto);  
+
+  background-color: #b2c1d1;
+  border-radius: 5px;
+}
+
+.character-card .character-image {
+  grid-row: 1 / 8;
+  justify-self: center;
+  align-self: center;
+  
+  padding: 15px;
+}
+
+.character-card .facet-group {
+  display: grid;
+  grid-template-columns: 150px auto;
+  border-bottom: dotted 1px #f6f8eb;
+  margin-right: 15px;
+}
+.character-card .facet-header {
+  font-weight: bold;
+  justify-self: right;
+  padding: 12px;
+}
+.character-card .facet-header::after {
+  color: #f6f8eb;
+  content: ' ::';
+}
+.character-card .facet-value {
+  font-family: monospace;
+  justify-self: left;
+  padding: 12px;
+}
+.character-card .facet-value.none {
+  font-style: italic;
+}
