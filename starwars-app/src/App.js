@@ -1,10 +1,9 @@
 import React from "react";
 import './App.css';
-import Links from './Links';
-import Routes from './Routes.js';
+import Routing from './Routing';
+
 import {
   BrowserRouter as Router,
-  Route,
   Link
 } from "react-router-dom";
 
@@ -17,8 +16,7 @@ return (
               <span><Link to="/">Home</Link></span>
             </li>
         </nav>
-            <Route exact path="/" component={Links} />
-            <Routes />
+          <Routing />
       </div>
     </Router>
   );

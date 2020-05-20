@@ -1,4 +1,5 @@
 import React from 'react';
+import './Character.css'
 class Character extends React.Component {
     constructor(props) {
         super(props);
@@ -21,7 +22,7 @@ class Character extends React.Component {
         const { characterData, isLoading } = this.state;
             return !isLoading && (
                 <div className="Character">
-                        <ul>
+                        <ul className="CharacterDetails">
                             <li><b>{characterData.name}</b></li>
                             <li>Height: {characterData.height}cm</li>
                             <li>Weight: {characterData.mass}kg</li>
