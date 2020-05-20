@@ -2,16 +2,14 @@ import React from 'react';
 import './CharacterSearch.css';
 import Utility from './Utility';
 
-{/* 
-  BONUS: Search
-  Kind of made my own bonus criteria :)
-  Noticed that the API provides the ability to search/filter by character attributes.
-  So this components allows you to search characters by "status" or "gender", which dynamically 
-  updates the corresponding values drop-down with values accepted by the API.
-  Wanted more practice with different kinds of form controls as well as event handlers.
-  If there was more time, I'd also include reuse the pagination component, but currently the 
-  search results only shows the first 20 charcters that match the search criteria - oh well, maybe in vNext!
- */}
+// BONUS: Search
+// Kind of made my own bonus criteria :)
+// Noticed that the API provides the ability to search/filter by character attributes.
+// So this components allows you to search characters by "status" or "gender", which dynamically 
+// updates the corresponding values drop-down with values accepted by the API.
+// Wanted more practice with different kinds of form controls as well as event handlers.
+// If there was more time, I'd also include reuse the pagination component, but currently the 
+// search results only shows the first 20 charcters that match the search criteria - oh well, maybe in vNext!
 export default class CharacterSearch extends React.Component {
   constructor(props) {
     super(props);
