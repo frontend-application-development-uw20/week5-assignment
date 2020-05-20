@@ -1,4 +1,5 @@
 import React from 'react';
+import {string, shape} from 'prop-types';
 import Utility from './Utility';
 import './CharacterDetail.css';
 
@@ -109,4 +110,20 @@ function CharacterCard(props) {
       </div>
     </section>
   );
+}
+CharacterCard.propTypes = {
+  detail: shape({
+    name: string, 
+    status: string, 
+    species: string, 
+    type: string, 
+    gender: string, 
+    origin: shape({
+      name: string,
+    }),
+    location: shape({
+      name: string,
+    }), 
+    image: string,
+  })
 }
