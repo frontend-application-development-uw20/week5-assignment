@@ -1,0 +1,26 @@
+
+.charList {
+  font-size: 30px;
+  color:white;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+ul
+{
+  list-style-type:none;
+  padding:0;
+  margin:0;
+}
+li
+{
+  background-repeat:no-repeat;
+  background-position:0 5px;
+  padding-left:14px;
+}
+li::before {
+  content: "• ";
+  color: silver;
+}
