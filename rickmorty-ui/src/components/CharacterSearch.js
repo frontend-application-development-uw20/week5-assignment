@@ -74,8 +74,20 @@ export default class CharacterSearch extends React.Component {
   }
 
   handleSearchCriteriaChange = (e) => {
+    const searchCriteria = e.target.value;
+    // Bug fix: When search criteria changes, need to update the value of the search criteria option (defaulting to first value).
+    let searchCriteriaOption;
+    if (searchCriteria === 'status') { 
+      searchCriteriaOption = this.statusOptions[0].value;
+    } else if (searchCriteria === 'gender') {
+      searchCriteriaOption = this.genderOptions[0].value;
+    } else {
+      throw new Error('Search criteria options not found.');
+    }
+
     this.setState({
-      searchCriteria: e.target.value
+      searchCriteria: searchCriteria, 
+      searchCriteriaOption: searchCriteriaOption,
     });
   }
 
