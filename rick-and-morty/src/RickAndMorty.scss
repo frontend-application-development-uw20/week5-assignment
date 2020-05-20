@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&family=VT323&display=swap');
+
+body {
+  background-color: #f9f9f9;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  // font-size: 1.25em;
+}
+
+.main-content-container {
+  padding: 0.5em;
+}
+
+.character-container {
+  background-color: white;
+  margin: 0.5em;
+  padding: 1em;
+  box-shadow: 0 0 6px 1px lightgray;
+  max-width: 300px;
+}
+
+.character-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  >a {
+    >.character-container {
+      &:hover {
+        box-shadow: 0 0 6px 1px chartreuse;
+      }
+    }
+  }
+}
+
+.character-list-navigator {
+  text-align: center;
+}
+
+.character-image-container {
+  position: relative;
+  >p.image-time-stamp {
+    position: absolute;
+    bottom: 0;
+    left: 0.25em;
+    margin: 0 0.25em 0.25em 0;
+    font-family: 'VT323', monospace;
+    color: orange;
+    text-shadow: 0 0 2px #0d0d0d;
+  }
+}
+
+.caption {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.5em;
+  text-align: center;
+  margin: 0 0;
+  height: 3em;
+  line-height: 1em;
+  display: table-cell;
+  vertical-align: middle;
+  width: 300px;
+}
+
+.character-detail-container {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  grid-template-areas:
+    "polaroid information";
+  >.character-container {
+    grid-area: polaroid;
+  }
+  >.character-information-container {
+    padding-right: 0.5em;
+    grid-area: information;
+  }
+}
+
+.character-information-form-container {
+  background-color: white;
+  box-shadow: 0 0 6px 1px lightgray;
+  margin-top: 0.5em;
+  padding: 1em;
+  >h2 {
+    font-weight: bold;
+    margin-top: 0;
+    text-transform: uppercase;
+  }
+  >.form-id {
+    font-size: 0.6em;
+    margin: 0 0;
+    text-align: right;
+  }
+}
+
+table.character-information-form {
+  border-collapse: collapse;
+  width: 100%;
+  & td {
+    border: 1px solid darkgray;
+    >.form-label, .form-info {
+      display: block;
+    }
+    >.form-label {
+      font-size: 0.8em;
+      text-transform: uppercase;
+    }
+    >.form-info {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 1.5em;
+      padding: 3px;
+    }
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .character-detail-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      "polaroid"
+      "information";
+    >.character-information-container {
+      margin-left: 0.5em;
+    }
+  }
+}
