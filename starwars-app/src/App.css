@@ -1,0 +1,15 @@
+.App {
+  text-align: left;
+}
+
+ul, li {
+  list-style: none;
+}
+
+.Character {
+  text-align: center;
+}
+
+/* span {
+  background-color: lightslategray;
+} */
