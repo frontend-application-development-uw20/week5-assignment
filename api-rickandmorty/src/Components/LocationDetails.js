@@ -3,7 +3,12 @@ import React from 'react';
 
 
 export default class LocationDetails extends React.Component {
-    state= {details: {} };
+
+    constructor(props) {
+        super(props);
+        this.state = 
+        {details: {} };
+    }
 
     componentDidMount() {
         const { loc_id } = this.props.match.params;
@@ -15,18 +20,15 @@ export default class LocationDetails extends React.Component {
 
     render(){
         const { details }= this.state;
-        //const { char_id } = this.props.match.params;
-        
-        // console.log(location);
         const updatedDate= new Date(details.created).toLocaleString('en-US');
+        const residents = details.residents;
         
         return (
             <div>
                 <h2>{details.id}. {details.name}</h2> <br />
                     <b>Type: </b> {details.type} <br />
                     <b>Dimension: </b>{details.dimension} <br />
-                        {details.residents} <br />
-                    <b>Created on: </b>{updatedDate}
+                    <b>Created on: </b>{updatedDate} <br />
 
             </div>
         )

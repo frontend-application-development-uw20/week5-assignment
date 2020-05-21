@@ -23,7 +23,6 @@ export default class EpisodeDetails extends React.Component {
                 <p>
                     <b>Air_Date: </b> {details.air_date} <br />
                         <b>Episode: </b>{details.episode} <br />
-                    <b>Characters: </b>{details.characters} <br />
                         <b>Created on: </b>{updatedDate} <br />
 
                 </p>
