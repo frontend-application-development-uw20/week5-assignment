@@ -14,9 +14,8 @@ export default class Youtube extends Component {
         fetch('https://api.covid19api.com/summary')
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-                console.log(data.Error);
-                // this.setState({ countries: data.Countries, loading: false, error: false })
+                // consol?e.log(data);
+                // console.log(data.Error);
                 this.setState({ countries: data.Countries, global: data.Global, date: data.Date, loading: false, error: false })
             }
             )

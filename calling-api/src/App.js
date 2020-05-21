@@ -9,6 +9,7 @@ import Covid19country from './covid19country';
 import NotFound from './NotFound';
 import MovieDetail from './movieDetail';
 import Stock from './stockapi';
+import Covid19province from './covid19province';
 
 // const Home = () => (
 //   <h1>Home</h1>
@@ -32,6 +33,7 @@ function App() {
           <Route exact path="/" component={Stock} />
           <Route exact path="/covid19" component={Covid19} />
           <Route exact path="/covid19/:CountryName/:CountryCode" component={Covid19country} />
+          <Route exact path="/covid19/:CountryName/:CountryCode/province" component={Covid19province} />
           <Route exact path="/movie" component={Movie} />
           <Route exact path="/movie/:imdbID" component={MovieDetail} />
           <Route exact path="/user" component={GitUser} />

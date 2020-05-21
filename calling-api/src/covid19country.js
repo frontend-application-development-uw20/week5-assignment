@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Covid19country extends React.Component {
     state = {
@@ -6,8 +7,9 @@ export default class Covid19country extends React.Component {
         Country: '',
         loading: true,
         error: false
+        , CountryName: ''
+        , CountryCode: ''
     }
-
 
     componentDidMount() {
         // console.log(this.props);
@@ -17,11 +19,10 @@ export default class Covid19country extends React.Component {
         const code = CountryName.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
         this.setState({ Country: code })
 
-        // fetch(`https://api.covid19api.com/live/country/${CountryName}/status/confirmed`)
         fetch(`https://api.covid19api.com/total/country/${CountryName}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data.Error);
+                // console.log(data.Error);
                 this.setState({ detail: data, loading: false, error: false })
             }
             )
@@ -29,6 +30,7 @@ export default class Covid19country extends React.Component {
     }
 
     render() {
+        // console.log(this.state.CountryName);
         if (this.state.loading) {
             return <div>....loading</div>;
         }
@@ -38,8 +40,10 @@ export default class Covid19country extends React.Component {
         }
         return (
             <>
-                {<img src={`https://www.countryflags.io/${this.state.CountryCode}/flat/64.png`} width="200px" alt="flag" />}
-                <h2>***   {this.state.Country} ***</h2>
+                {< img src={`https://www.countryflags.io/${this.state.CountryCode}/flat/64.png`} width="200px" alt="flag" />}
+
+                <Link to={`/covid19/${this.state.CountryName}/${this.state.CountryCode}/Province`}> <h2>***   {this.state.Country} ***</h2> </Link>
+
                 <div className="detail">
                     {this.state.detail.map((c, idx) =>
                         <div key={idx}>

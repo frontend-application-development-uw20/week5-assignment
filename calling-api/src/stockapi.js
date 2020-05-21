@@ -2,12 +2,9 @@ import React from 'react';
 import { TOKEN } from './api-key';
 
 const symbol = 'aapl,ba,bac,c,cost,fb,goog,ibm,sbux,wfc,xom';
-
-console.log(TOKEN);
-
+// console.log(TOKEN);
 
 export default class StockExchange extends React.Component {
-
     state = {
         stocks: {}
     }
