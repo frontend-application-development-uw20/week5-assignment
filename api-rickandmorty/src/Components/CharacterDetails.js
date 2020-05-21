@@ -83,6 +83,7 @@ export default class CharacterDetails extends React.Component {
                         <b>Species: </b>{details.species} <br/>
                         <b>Gender: </b>{details.gender}<br/>
                         <b>Created on: </b>{updatedDate}
+                        
 
             </div>
         )
