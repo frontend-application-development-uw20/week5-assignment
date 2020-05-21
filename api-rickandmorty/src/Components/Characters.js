@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import Pagination from 'react-js-pagination';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
 export default class Characters extends React.Component{
     state= {characters: [],
             page_info:[],
@@ -26,6 +25,7 @@ export default class Characters extends React.Component{
                         characters: data.results,
                         page_info: data.info,
                         activePage:pageNumber
+                        
                     }));
 
      }
@@ -35,6 +35,7 @@ export default class Characters extends React.Component{
             
     }
     }
+
 
      updateSearch(event){
          this.setState({search: event.target.value.substr(0,20)});
@@ -73,18 +74,17 @@ export default class Characters extends React.Component{
                     </ul>
  
                         <Pagination 
-                        activePage= {this.state.activePage}
-                        totalItemsCount= {count}
-                        itemsCountPerPage= {20}
-                        onChange = {(pageNumber) => this.getCharacters(pageNumber)} 
-                        itemClass= "page-item"
-                        linkClass= "page-link"
-                        firstPageText= "First"
-                        lastPageText= "Last"
+                            activePage= {this.state.activePage}
+                            totalItemsCount= {count}
+                            itemsCountPerPage= {20}
+                            onChange = {(pageNumber) => this.getCharacters(pageNumber)} 
+                            itemClass= "page-item"
+                            linkClass= "page-link"
+                            firstPageText= "First"
+                            lastPageText= "Last"
     
                         />
 
-                    
                 </div>
 
             </React.Fragment>

@@ -76,14 +76,12 @@ export default class CharacterDetails extends React.Component {
                     </i>
                 </h2>
             
-                <img src = {details.image} alt= {`${details.name} poster`}
-                /> <br />
+                <img src = {details.image} alt= {`${details.name} poster`} /> <br />
 
                     <b>Status: </b> {details.status} <br />
                         <b>Species: </b>{details.species} <br/>
                         <b>Gender: </b>{details.gender}<br/>
                         <b>Created on: </b>{updatedDate}
-                        
 
             </div>
         )

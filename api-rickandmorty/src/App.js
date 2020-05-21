@@ -15,7 +15,6 @@ const Home = (props) => {
     <div className= "home-page">
       
        <a href= "https://en.wikipedia.org/wiki/Rick_and_Morty" ><h1>Time for Rick and Morty</h1></a>
-        {/* <a href= "https://en.wikipedia.org/wiki/Rick_and_Morty" content= "rick and morty wiki"/> */}
       <img className= "poster" src=
       "https://cdn11.bigcommerce.com/s-1n8r405nxd/images/stencil/2000x2000/products/6104/10383/20364-1-Rick_Morty_Portal_Poster-Cheapest_Affordable_Online_Wholesale_Waterbedsnstuff__78431.1536271014.jpg?c=2" 
       alt="Rick and Morty poster"/>
@@ -25,18 +24,16 @@ const Home = (props) => {
 
 const NotFound = () => <div> 404 Not Found </div>
 
-
-
 function App() {
   return (
     <div className="App">
       <Router>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"></link>
         <div>
-         <Link to ="/"> <em>Home  </em></Link> 
-         <Link to ="/characters"><em>  Characters </em> </Link>
-         <Link to ="/locations"><em>  Locations </em> </Link>
-         <Link to ="/episodes"><em>  Episodes </em> </Link>
+         <Link to ="/"> <em>Home </em></Link> 
+         <Link to ="/characters"><em> Characters  </em> </Link>
+         <Link to ="/locations"><em>  Locations  </em> </Link>
+         <Link to ="/episodes"><em>  Episodes  </em> </Link>
 
          
          <hr />
