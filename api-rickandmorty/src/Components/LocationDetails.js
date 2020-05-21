@@ -21,7 +21,6 @@ export default class LocationDetails extends React.Component {
     render(){
         const { details }= this.state;
         const updatedDate= new Date(details.created).toLocaleString('en-US');
-        const residents = details.residents;
         
         return (
             <div>
