@@ -35,13 +35,13 @@ export default class Episodes extends React.Component{
             return episode.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
         })
         return(
-            <React.Fragment>
+           
                 <div className= "list" >
                     <h3>Browse Episodes Here</h3>
                     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"></link>
                     <div > 
                         <i className="material-icons" >search</i><span />
-                        <input type = "text" placeholder= "Search here!" class= "search" value= {this.state.search} onChange={this.updateSearch.bind(this) } /> 
+                        <input type = "text" placeholder= "Search here!" className= "search" value= {this.state.search} onChange={this.updateSearch.bind(this) } /> 
                     </div> 
                     <ul>
                         {filteredEpisodes.map((episode,index) => ( 
@@ -63,8 +63,6 @@ export default class Episodes extends React.Component{
                     firstPageText= "First"
                     lastPageText= "Last" />
                 </div>
-            </React.Fragment>
-
 
         )
     }

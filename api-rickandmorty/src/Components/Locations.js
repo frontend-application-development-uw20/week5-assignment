@@ -41,13 +41,13 @@ export default class Locations extends React.Component{
         })
         
         return(
-            <React.Fragment>
+            
                 <div className= "list" >
                     <h3>Browse Locations Here</h3>
                     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"></link>
                    <div > 
                        <i className="material-icons" >search</i><span />
-                        <input type = "text" placeholder= "Search here!" class= "search" value= {this.state.search} onChange={this.updateSearch.bind(this) } /> 
+                        <input type = "text" placeholder= "Search here!" className= "search" value= {this.state.search} onChange={this.updateSearch.bind(this) } /> 
                     </div> 
                     <ul>
                         {filteredLocations.map((location,index) => ( 
@@ -74,8 +74,7 @@ export default class Locations extends React.Component{
 
                 </div>
 
-            </React.Fragment>
-
+           
         )
     }
 }

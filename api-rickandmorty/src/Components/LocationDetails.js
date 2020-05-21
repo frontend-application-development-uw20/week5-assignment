@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 export default class LocationDetails extends React.Component {
 
     constructor(props) {
@@ -10,7 +8,7 @@ export default class LocationDetails extends React.Component {
         {details: {} };
     }
 
-    componentDidMount() {
+  componentDidMount() {
         const { loc_id } = this.props.match.params;
         fetch(`https://rickandmortyapi.com/api/location/${loc_id}`)
         .then(res => res.json())

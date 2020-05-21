@@ -51,7 +51,7 @@ export default class Characters extends React.Component{
                                  })
   
         return(
-            <React.Fragment>
+            
                 <div className= "list" >
                     <h3>Browse Characters Here</h3>
                    <div > 
@@ -87,7 +87,7 @@ export default class Characters extends React.Component{
 
                 </div>
 
-            </React.Fragment>
+            
         )
     }
 
