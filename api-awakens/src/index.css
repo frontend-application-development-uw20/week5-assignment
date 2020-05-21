@@ -1,0 +1,120 @@
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@font-face {
+  font-family: "StarWars";
+  src: local("StarWars"), url("fonts/STJEDISE.TTF") format("truetype");
+}
+
+body,
+.App {
+  margin: 0;
+  font-family: "Benton Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #2e2925;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h2 {
+  font-family: "StarWars", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 2rem;
+  color: #ffe81f;
+}
+
+li {
+  text-align: left;
+}
+
+.characterlist {
+  transition: 0.6s opacity ease-in;
+  opacity: 1;
+}
+.characterlist.loading {
+  opacity: 0;
+}
+.characters {
+  font-size: 1rem;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+}
+
+.characters a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.7s color ease;
+}
+.characters a:hover {
+  color: #ffe81f;
+}
+#starwarsdetails {
+  height: 100vh;
+  perspective: 400px;
+  color: #feda4a;
+  font-family: "Pathway Gothic One", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+}
+#starwarsdetails p {
+  text-align: left;
+}
+@keyframes crawl {
+  0% {
+    top: 0;
+    transform: rotateX(20deg) translateZ(0);
+  }
+  100% {
+    top: -6000px;
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
+}
+
+.crawl {
+  position: relative;
+  transform-origin: 50% 100%;
+}
+
+#return,
+#return a {
+  width: 100%;
+  position: fixed;
+  bottom: 10px;
+  padding-bottom: 10px;
+  color: #2e2925;
+  font-family: "StarWars", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 2rem;
+  color: #ffffff;
+  text-align: center;
+  left: 0;
+}
+
+#return404,
+#return404 a {
+  background-color: #2e2925;
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 5rem;
+  width: 90%;
+  color: #ffffff;
+  text-align: center;
+}
+.spinner-border.page-centered {
+  position: fixed;
+  top: 50vh;
+  color: #ffe81f;
+  left: 50vh;
+}
