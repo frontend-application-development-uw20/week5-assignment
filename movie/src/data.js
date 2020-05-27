@@ -1,15 +1,15 @@
 export const defaultMovies = [
   {
     id: 1,
-    title: "batman"
+    title: "batman",
   },
   {
     id: 2,
-    title: "ironman"
+    title: "iron man",
   },
   {
     id: 3,
-    title: "hulk"
+    title: "hulk",
   },
   {
     id: 4,
@@ -17,7 +17,7 @@ export const defaultMovies = [
   },
   {
     id: 5,
-    title: "spiderman"
+    title: "spider-man"
   },
   {
     id: 6,

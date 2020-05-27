@@ -1,42 +1,49 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { defaultMovies } from "../data";
+import { MainContainer } from "./MainContainer";
+import Card from "./Card";
 
 export default class MovieList extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: "title" in props ? [props.title] : defaultMovies,
+      res: [],
     };
   }
 
   componentDidMount() {
-    fetch(`http://www.omdbapi.com/?apikey=f95be5bf&t=a`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          console.log(result);
-          // this.setState({
-          //   isLoaded: true,
-          //   items: result
-          // });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error: error
-          });
-        }
-      )
+    this.state.items.forEach((item) =>
+      fetch(`http://www.omdbapi.com/?apikey=f95be5bf&t=${item.title}`)
+        .then((res) => res.json())
+        .then((result) =>
+          this.setState((state) => {
+            const list = state.res.concat(result);
+            return {
+              res: list,
+            };
+          })
+        )
+    );
   }
 
   render() {
     return (
-      <React.Fragment>
-      <p>{this.state.items}</p>
-      </React.Fragment>
+      <MainContainer>
+        {this.state.res.map((item) => (
+          <Card
+            key={item.Title}
+            img={item.Poster}
+            title={item.Title}
+            year={item.Year}
+          />
+        ))}
+      </MainContainer>
     );
   }
 }

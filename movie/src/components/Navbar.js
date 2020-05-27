@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import styled from "styled-components";
 import { MainContainer } from "./MainContainer";
 
@@ -13,7 +13,36 @@ export default class Navbar extends Component {
       error: null,
       isLoaded: false,
       items: [],
+      title: "",
+      year: "",
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleYear = this.handleYear.bind(this);
+    this.handleTitle = this.handleTitle.bind(this);
+  }
+
+  handleSubmit(event) {
+    console.log(this.state.title);
+    if (this.state.title === "") {
+      event.preventDefault();
+    }
+    return (
+      <Redirect
+        to={{
+          pathname: "/",
+          title: this.state.title,
+          year: this.state.year
+        }}
+      />
+    );
+  }
+
+  handleYear(event) {
+    this.setState({ title: event.target.value });
+  }
+
+  handleTitle(event) {
+    this.setState({ title: event.target.value });
   }
 
   render() {
@@ -21,21 +50,27 @@ export default class Navbar extends Component {
       <NavWrapper>
         <MainContainer>
           <Link to="/">
-            <FontAwesomeIcon icon={faHome}  size="lg"/>
+            <FontAwesomeIcon icon={faHome} size="lg" />
           </Link>
           <FormGroup>
             <Label>Title:</Label>
-            <Input type="text" placeholder="Title" />
+            <Input
+              type="text"
+              value={this.state.title}
+              onChange={this.handleYear}
+            />
           </FormGroup>
 
           <FormGroup>
             <Label>Year:</Label>
-            <Input type="password" placeholder="Year" />
+            <Input
+              type="text"
+              value={this.state.year}
+              onChange={this.handleYear}
+            />
           </FormGroup>
 
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
+          <Button onClick={this.handleSubmit}>Submit</Button>
         </MainContainer>
       </NavWrapper>
     );
@@ -53,7 +88,8 @@ const Button = styled.button`
   border: 4px solid palevioletred;
   color: palevioletred;
   font-size: 1rem;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   :hover {
     border: 4px solid var(--mainYellow);
     color: var(--mainYellow);
