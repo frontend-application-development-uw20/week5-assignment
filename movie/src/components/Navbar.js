@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { MainContainer } from "./MainContainer";
 
@@ -7,44 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 export default class Navbar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: null,
-      isLoaded: false,
-      items: [],
-      title: "",
-      year: "",
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleYear = this.handleYear.bind(this);
-    this.handleTitle = this.handleTitle.bind(this);
-  }
-
-  handleSubmit(event) {
-    console.log(this.state.title);
-    if (this.state.title === "") {
-      event.preventDefault();
-    }
-    return (
-      <Redirect
-        to={{
-          pathname: "/",
-          title: this.state.title,
-          year: this.state.year
-        }}
-      />
-    );
-  }
-
-  handleYear(event) {
-    this.setState({ title: event.target.value });
-  }
-
-  handleTitle(event) {
-    this.setState({ title: event.target.value });
-  }
-
   render() {
     return (
       <NavWrapper>
@@ -56,8 +18,8 @@ export default class Navbar extends Component {
             <Label>Title:</Label>
             <Input
               type="text"
-              value={this.state.title}
-              onChange={this.handleYear}
+              value={this.props.title}
+              onChange={this.props.handleYear}
             />
           </FormGroup>
 
@@ -65,12 +27,12 @@ export default class Navbar extends Component {
             <Label>Year:</Label>
             <Input
               type="text"
-              value={this.state.year}
-              onChange={this.handleYear}
+              value={this.props.year}
+              onChange={this.props.handleYear}
             />
           </FormGroup>
 
-          <Button onClick={this.handleSubmit}>Submit</Button>
+          <Button onClick={this.props.handleSubmit}>Submit</Button>
         </MainContainer>
       </NavWrapper>
     );
