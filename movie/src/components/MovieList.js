@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
 import { MainContainer } from "./MainContainer";
 import Card from "./Card";
 
@@ -10,9 +9,8 @@ export default class MovieList extends Component {
         {this.props.items.map((item) => (
           <Card
             key={item.Title}
-            img={item.Poster}
-            title={item.Title}
-            year={item.Year}
+            movie={item}
+            handleDetail={this.props.handleDetail}
           />
         ))}
       </MainContainer>
